@@ -79,6 +79,4 @@ export const selectContacts = (state) => {
 
 export const isLoading = (state) => state.contacts.isLoading;
 
-export const { addContact, deleteContact } = contactsSlice.actions;
-
 export default contactsSlice.reducer;
