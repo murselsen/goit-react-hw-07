@@ -1,0 +1,112 @@
+.ContactArea {
+  background-color: var(--space);
+  width: 100%;
+  max-width: 1200px;
+
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.ContactAreaTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--mint);
+}
+
+.ContactList {
+  padding: 0;
+  margin-block: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 30px;
+  width: 100%;
+}
+.ContactItem {
+  display: flex;
+  gap: 15px;
+  color: white;
+  padding: 18px;
+  border-radius: 8px;
+  background-color: var(--black);
+  transition: background-color 1s ease, color 3s;
+  align-items: center;
+  flex: 1;
+  min-width: 350px;
+}
+.ContactItem .ItemBadge {
+  width: 30px;
+  height: 30px;
+  font-size: medium;
+  text-align: center;
+  background-color: var(--mint);
+  color: var(--black);
+  border-radius: 50%;
+  align-content: center;
+}
+
+.ContactItem .Btn {
+  margin-inline-start: auto;
+  justify-self: flex-end;
+  text-decoration: none;
+  background-color: var(--mint);
+  padding: 15px 10px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.ContactItem .Btn:hover {
+  color: var(--black);
+  font-weight: normal;
+}
+.ContactForm {
+  margin-top: 10px;
+}
+.ContactFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: white;
+  flex: 1;
+  min-width: 250px;
+}
+
+.ContactFormGroup .Input {
+  padding: 10px 15px;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid var(--black);
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .ContactArea {
+    width: 100%;
+
+    max-width: 650px;
+  }
+  .ContactItem {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    row-gap: 10px;
+    align-items: center;
+    font-size: 1.4em;
+  }
+  .ContactItem .ItemBadge {
+    margin-bottom: 10px;
+    font-size: 1em;
+    width: 35px;
+    height: 35px;
+    align-self: flex-end;
+  }
+  .ContactItem .Btn {
+    width: 100%;
+    font-size: 0.75em;
+
+    text-align: center;
+  }
+}

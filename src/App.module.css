@@ -1,0 +1,25 @@
+.App {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--black);
+  color: var(--tridery-color);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.Title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--mint);
+}
+
+@media (max-width: 767px) {
+  .App {
+    padding: 20px;
+    height: 100%;
+  }
+  .Title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,68 @@
+.Form {
+  padding: 30px 10px;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--space);
+  row-gap: 20px;
+  column-gap: 10px;
+}
+.FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: white;
+  flex: 1;
+  min-width: 250px;
+}
+
+.FormGroup .Input {
+  padding: 10px 15px;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid var(--black);
+  color: white;
+}
+
+.FormGroup:nth-child(3) .Button {
+  margin: auto;
+  width: 75%;
+}
+
+.FormGroup .Input:focus {
+  border-bottom: 1px solid var(--mint);
+  color: var(--mint);
+}
+
+.FormGroup .Error {
+  margin-block: 5px;
+  color: lightcoral;
+}
+
+.FormGroup .Button {
+  padding: 5px 20px;
+  width: 80px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: var(--green);
+  color: whitesmoke;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .Form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 650px;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+}
