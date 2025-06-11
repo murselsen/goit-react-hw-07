@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import ContentLoader from "react-content-loader";
 import Css from "./ContactList.module.css";
 import {
   deleteContact,
@@ -41,12 +41,12 @@ const ContactList = () => {
           </div>
         </Form>
       </Formik>
+
       <ul className={Css.ContactList}>
         {contacts.map((contact) => (
           <li key={contact.id} className={Css.ContactItem}>
             <span className={Css.ItemBadge}>{contact.name[0]}</span>
             <p className={Css.Title}>{contact.name}</p>
-
             <p className={Css.subTitle}>{`${contact.phone.slice(
               0,
               3
@@ -61,6 +61,20 @@ const ContactList = () => {
         ))}
       </ul>
     </div>
+  );
+};
+
+const Loader = () => {
+  return (
+    <ContentLoader
+      viewBox="0 0 380 200"
+      backgroundColor="#f3f3f3"
+      foregroundColor="#ecebeb"
+    >
+      <circle cx="25" cy="25" r="25" />
+      <rect x="60" y="7" rx="5" ry="5" width="230" height="12" />
+      <rect x="60" y="28" rx="5" ry="5" width="150" height="11" />
+    </ContentLoader>
   );
 };
 
