@@ -1,11 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+
 import {
-  FETCH_CONTACTS,
-  FETCH_CONTACTS_FULFILLED,
-  FETCH_CONTACTS_PENDING,
   SLICE_NAME,
+  FETCH_CONTACTS_PENDING,
+  FETCH_CONTACTS_FULFILLED,
+  FETCH_CONTACTS_REJECTED,
+  ADD_CONTACT_PENDING,
+  ADD_CONTACT_FULFILLED,
+  ADD_CONTACT_REJECTED,
+  DELETE_CONTACT_PENDING,
+  DELETE_CONTACT_FULFILLED,
+  DELETE_CONTACT_REJECTED,
 } from "./contants";
 
 const initialValues = {
@@ -13,12 +18,12 @@ const initialValues = {
   isLoading: false,
   error: null,
 };
-
 const contactsSlice = createSlice({
   name: SLICE_NAME,
   initialState: initialValues,
   reducers: {},
   extraReducers: (builder) => {
+    // FETCH_CONTACTS işlemleri için ekstra reducer'lar
     builder.addCase(FETCH_CONTACTS_PENDING, (state) => {
       state.isLoading = true;
     });
@@ -27,20 +32,38 @@ const contactsSlice = createSlice({
       state.error = null;
       state.items = action.payload;
     });
+    builder.addCase(FETCH_CONTACTS_REJECTED, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    });
+    // ADD_CONTACT işlemleri için ekstra reducer'lar
+    builder.addCase(ADD_CONTACT_PENDING, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(ADD_CONTACT_FULFILLED, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+      state.items.push(action.payload);
+    });
+    builder.addCase(ADD_CONTACT_REJECTED, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    });
+
+    // DELETE_CONTACT işlemleri için ekstra reducer'lar
+    builder.addCase(DELETE_CONTACT_PENDING, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(DELETE_CONTACT_FULFILLED, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+      state.items = state.items.filter(
+        (contact) => contact.id !== action.payload.id
+      );
+    });
+    builder.addCase(DELETE_CONTACT_REJECTED, (state, action) => {});
   },
 });
-
-const contactsPersistConfig = {
-  key: "contacts", // Local storage'da kullanılacak anahtar
-  storage, // Depolama yöntemi (localStorage)
-  whitelist: ["items"], // Sadece items dizisini persist et
-};
-
-// Persist edilmiş reducer oluştur
-const persistedContactsReducer = persistReducer(
-  contactsPersistConfig,
-  contactsSlice.reducer
-);
 
 export const selectContacts = (state) => {
   if (state.filters.search) {
@@ -54,4 +77,5 @@ export const selectContacts = (state) => {
 export const isLoading = (state) => state.contacts.isLoading;
 
 export const { addContact, deleteContact } = contactsSlice.actions;
-export default persistedContactsReducer;
+
+export default contactsSlice.reducer;

@@ -10,12 +10,12 @@ export const GET_CONTACT_PENDING = `${GET_CONTACT}/pending`;
 export const GET_CONTACT_FULFILLED = `${GET_CONTACT}/fulfilled`;
 export const GET_CONTACT_REJECTED = `${GET_CONTACT}/rejected`;
 
-export const ADD_CONTACT = `${SLICE_NAME}/addContact`;
+export const ADD_CONTACT = `${SLICE_NAME}/postContact`;
 export const ADD_CONTACT_PENDING = `${ADD_CONTACT}/pending`;
 export const ADD_CONTACT_FULFILLED = `${ADD_CONTACT}/fulfilled`;
 export const ADD_CONTACT_REJECTED = `${ADD_CONTACT}/rejected`;
 
-export const UPDATE_CONTACT = `${SLICE_NAME}/updateContact`;
+export const UPDATE_CONTACT = `${SLICE_NAME}/putContact`;
 export const UPDATE_CONTACT_PENDING = `${UPDATE_CONTACT}/pending`;
 export const UPDATE_CONTACT_FULFILLED = `${UPDATE_CONTACT}/fulfilled`;
 export const UPDATE_CONTACT_REJECTED = `${UPDATE_CONTACT}/rejected`;

@@ -8,9 +8,10 @@ import {
 import { changeFilter } from "../redux/reducers/filters/slice";
 import { Field, Form, Formik } from "formik";
 import { nanoid } from "nanoid";
+import { Toaster } from "react-hot-toast";
 
 const ContactList = () => {
-  let contacts = useSelector(selectContacts);
+  let contacts = useSelector(selectContacts).slice().reverse();
 
   const dispatch = useDispatch();
   const handleDeleteUser = (id) => {
@@ -24,6 +25,7 @@ const ContactList = () => {
   const searchId = nanoid();
   return (
     <div className={Css.ContactArea}>
+      <Toaster />
       <h2 className={Css.ContactAreaTitle}>Contacts</h2>
       <Formik onChange={changeFrom}>
         <Form className={Css.ContactForm}>

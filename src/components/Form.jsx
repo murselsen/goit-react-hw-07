@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import Css from "./Form.module.css";
 
 import { useDispatch } from "react-redux";
+import { addContact } from "../redux/reducers/contacts/operations";
 
 const AForm = () => {
   const nameId = nanoid();
@@ -13,7 +14,8 @@ const AForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch({ type: "contacts/addContact", payload: values });
+    // values.id = nanoid();
+    dispatch(addContact(values));
     resetForm();
   };
 
