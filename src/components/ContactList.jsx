@@ -2,9 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import ContentLoader from "react-content-loader";
 import Css from "./ContactList.module.css";
 import {
-  deleteContact,
+
   selectContacts,
 } from "../redux/reducers/contacts/slice";
+import { deleteContact } from "../redux/reducers/contacts/operations";
 import { changeFilter } from "../redux/reducers/filters/slice";
 import { Field, Form, Formik } from "formik";
 import { nanoid } from "nanoid";
