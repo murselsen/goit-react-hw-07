@@ -61,7 +61,10 @@ const contactsSlice = createSlice({
         (contact) => contact.id !== action.payload.id
       );
     });
-    builder.addCase(DELETE_CONTACT_REJECTED, (state, action) => {});
+    builder.addCase(DELETE_CONTACT_REJECTED, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    });
   },
 });
 
