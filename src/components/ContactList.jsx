@@ -1,15 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import ContentLoader from "react-content-loader";
 import Css from "./ContactList.module.css";
-import {
-
-  selectContacts,
-} from "../redux/reducers/contacts/slice";
+import { selectContacts } from "../redux/reducers/contacts/slice";
 import { deleteContact } from "../redux/reducers/contacts/operations";
 import { changeFilter } from "../redux/reducers/filters/slice";
 import { Field, Form, Formik } from "formik";
 import { nanoid } from "nanoid";
-import { Toaster } from "react-hot-toast";
 
 const ContactList = () => {
   let contacts = useSelector(selectContacts).slice().reverse();
@@ -26,7 +22,6 @@ const ContactList = () => {
   const searchId = nanoid();
   return (
     <div className={Css.ContactArea}>
-      <Toaster />
       <h2 className={Css.ContactAreaTitle}>Contacts</h2>
       <Formik onChange={changeFrom}>
         <Form className={Css.ContactForm}>

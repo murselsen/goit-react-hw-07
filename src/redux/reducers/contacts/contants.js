@@ -15,11 +15,6 @@ export const ADD_CONTACT_PENDING = `${ADD_CONTACT}/pending`;
 export const ADD_CONTACT_FULFILLED = `${ADD_CONTACT}/fulfilled`;
 export const ADD_CONTACT_REJECTED = `${ADD_CONTACT}/rejected`;
 
-export const UPDATE_CONTACT = `${SLICE_NAME}/putContact`;
-export const UPDATE_CONTACT_PENDING = `${UPDATE_CONTACT}/pending`;
-export const UPDATE_CONTACT_FULFILLED = `${UPDATE_CONTACT}/fulfilled`;
-export const UPDATE_CONTACT_REJECTED = `${UPDATE_CONTACT}/rejected`;
-
 export const DELETE_CONTACT = `${SLICE_NAME}/deleteContact`;
 export const DELETE_CONTACT_PENDING = `${DELETE_CONTACT}/pending`;
 export const DELETE_CONTACT_FULFILLED = `${DELETE_CONTACT}/fulfilled`;
